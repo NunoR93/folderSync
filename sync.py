@@ -24,7 +24,8 @@ for i in range(3):
 #This function gets the folder path and returns all it's contents in a list with a relative path for every item in the folder
 def getFolderStructure(path):
   files_paths = []
-
+  if(not os.path.exists(path)):
+    os.mkdir(path)
   for root, dirs, files in os.walk(path):
     for file in files:
       file_path = os.path.join(root, file)
